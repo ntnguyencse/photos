@@ -1,5 +1,5 @@
 [build]
-    publish = "exampleSite/public"
+    publish = "content/public"
     command = "./hugo-ci.sh --gc -s content --minify"
 
     [build.environment]
