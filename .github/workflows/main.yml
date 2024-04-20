@@ -9,26 +9,30 @@ on:
   push:
     branches: [ main ]
     # The type of runner that the job will run on
-runs-on: ubuntu-20.04
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "deploy-production"
+  deploy-production:
+    runs-on: ubuntu-20.04
 
     # Steps represent a sequence of tasks that will be executed as part of the job
-steps:
+    steps:
 
-  # Step 1 - Checks-out your repository under $GITHUB_WORKSPACE
-  - name: Checkout
-    uses: actions/checkout@v2
-    with:
-        submodules: recursive  # Fetch private content
-
-  # Step 2 - Install Hugo (specific version)
-  - name: Install Hugo
-    uses: peaceiris/actions-hugo@v2
-    with:
-        hugo-version: '0.101.0'
-        extended: true
+    # Step 1 - Checks-out your repository under $GITHUB_WORKSPACE
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+          submodules: recursive  # Fetch private content
   
-  - name: Install Dart Sass
-    run: sudo snap install dart-sass
-  # Step 3 - Install Package Dependencies
-  - name: Install Dependencies
-    run: npm install
+    # Step 2 - Install Hugo (specific version)
+    - name: Install Hugo
+      uses: peaceiris/actions-hugo@v2
+      with:
+          hugo-version: '0.101.0'
+          extended: true
+    
+    - name: Install Dart Sass
+      run: sudo snap install dart-sass
+    # Step 3 - Install Package Dependencies
+    - name: Install Dependencies
+      run: npm install
