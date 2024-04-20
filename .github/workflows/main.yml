@@ -51,10 +51,8 @@ jobs:
         #   hugo --minify --baseURL "${{ steps.pages.outputs.base_url }}/"
     - name: Generate Pagefind search index
       run:  echo "Skipppppp Index page" && ls -lash && cd exampleSite && ls -lash  # npx pagefind --source "public"
-    - name: Upload artifact
-      run: mkdir _site && cp -r exampleSite/public _site
     - name: Upload GitHub Pages artifact
-      uses: actions/upload-pages-artifact@v1.0.4
+      uses: actions/upload-artifact@v4
       with:
         path: exampleSite/public
 
@@ -76,3 +74,5 @@ jobs:
     - name: Deploy to GitHub Pages
       id: deployment
       uses: actions/deploy-pages@v4
+      with:
+        artifact_name: 'github-pages'
