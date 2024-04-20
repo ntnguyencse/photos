@@ -37,7 +37,7 @@ jobs:
     # - name: Install Dependencies
     #   run: npm install
     - name: Build Hugo Website
-      run: ./hugo-ci.sh --gc -s exampleSite --minify --baseURL "${{ steps.pages.outputs.base_url }}
+      run: ./hugo-ci.sh --gc -s exampleSite --minify --baseURL ${{ steps.pages.outputs.base_url }}
       env:
           HUGO_ENVIRONMENT: production
         # run: |
