@@ -1,4 +1,4 @@
-baseURL = "https://galleriesdeluxe.netlify.app/"
+baseURL = "https://photos.ntnguyen.com/"
 
 [taxonomies]
     category = 'categories'
@@ -10,9 +10,9 @@ baseURL = "https://galleriesdeluxe.netlify.app/"
 
 [params]
     [params.author]
-        name        = "Bjørn Erik Pedersen"
-        email       = "bjorn.erik.pedersen@gmail.com"
-        description = "A Hugo gallery website"
+        name        = "Nguyễn Thành Nguyên"
+        email       = "hello@ntnguyen.com"
+        description = "Những tấm ảnh tôi chụp"
 
     [params.galleriesdeluxe]
         # One of dartsass or libsass.
