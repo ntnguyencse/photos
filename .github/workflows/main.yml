@@ -31,13 +31,13 @@ jobs:
           hugo-version: '0.115.1'
           extended: true
     
-    - name: Install Dart Sass
-      run: sudo snap install dart-sass
+    # - name: Install Dart Sass
+    #   run: sudo snap install dart-sass
     # Step 3 - Install Package Dependencies
     - name: Install Dependencies
       run: npm install sass
     - name: Build Hugo Website
-      run: ./hugo-ci.sh --gc -s exampleSite --minify --baseURL ${{ steps.pages.outputs.base_url }}
+      run: ./hugo-ci.sh --gc -s exampleSite --minify #--baseURL ${{ steps.pages.outputs.base_url }}
       env:
           HUGO_ENVIRONMENT: production
         # run: |
