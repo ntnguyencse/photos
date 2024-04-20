@@ -46,9 +46,7 @@ jobs:
     - name: Generate Pagefind search index
       run:  echo "Skipppppp Index page" && ls -lash && cd exampleSite && ls -lash  # npx pagefind --source "public"
     - name: Upload artifact
-      uses: actions/upload-pages-artifact@v2
-      with:
-       path: ./public
+      run: mkdir public && cp exampleSite/public public
 
   # Deploy website to GitHub Pages hosting
   deploy:
