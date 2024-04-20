@@ -1,3 +1,3 @@
 ---
-title: Galleries
+title: Các album ảnh của tôi
 ---
