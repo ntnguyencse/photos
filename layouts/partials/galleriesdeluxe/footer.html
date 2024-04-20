@@ -1,4 +1,16 @@
 <div>
+  {{ if .Params.comments }}
+  <script src="https://utteranc.es/client.js"
+          repo="ntnguyencse/photos.git"
+          issue-term="pathname"
+          label="Comments"
+          theme="github-light"
+          crossorigin="anonymous"
+          async>
+  </script>
+{{ end }}
+</div>
+<div>
   <div>
     All photos &copy;
     {{ with site.Params.author }}
