@@ -1,4 +1,4 @@
-<!-- {{- if (not (isset .Params "comments")) }} -->
+{{ if .comments }}
 <script src="https://utteranc.es/client.js"
         repo="ntnguyencse/photos.git"
         issue-term="pathname"
@@ -7,4 +7,4 @@
         crossorigin="anonymous"
         async>
 </script>
-<!-- {{- end }} -->
+{{ end }}
