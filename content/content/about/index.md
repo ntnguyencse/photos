@@ -1,5 +1,6 @@
 ---
 title: Về tôi
+date: 2024-04-20
 layout: about
 ---
 ~~Thực ra tôi tạo trang web này để lưu ảnh và khoe với đồng nghiệp~~
