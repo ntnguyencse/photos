@@ -1,0 +1,60 @@
+# Workflow to build and deploy site to Vercel using Hugo
+
+# Name of Workflow
+name: build-test
+
+# Controls when the action will run. Triggers the workflow on push
+# events but only for the vercel branch
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+# Start Actions
+on:
+  push:
+    branches: [ main ]
+    # The type of runner that the job will run on
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "deploy-production"
+  build:
+    runs-on: ubuntu-20.04
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+
+    # Step 1 - Checks-out your repository under $GITHUB_WORKSPACE
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+          submodules: recursive  # Fetch private content
+  
+    # Step 2 - Install Hugo (specific version)
+    - name: Install Hugo
+      uses: peaceiris/actions-hugo@v2
+      with:
+          hugo-version: '0.115.1'
+          extended: true
+    
+    # - name: Install Dart Sass
+    #   run: sudo snap install dart-sass
+    # Step 3 - Install Package Dependencies
+    # - name: Install Dependencies
+    #   run: npm install sass
+    - name: Build Hugo Website
+      run: ./hugo-ci.sh --gc -s content --minify -v #--baseURL ${{ steps.pages.outputs.base_url }}
+      env:
+          HUGO_ENVIRONMENT: production
+        # run: |
+        #   echo "Hugo Cache Dir: $(hugo config | grep cachedir)"
+        #   hugo --minify --baseURL "${{ steps.pages.outputs.base_url }}/"
+    - name: Generate Pagefind search index
+      run:  echo "Skipppppp Index page" && ls -lash && cd content && ls -lash  # npx pagefind --source "public"
+    - name: Upload GitHub Pages artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: content/build-test
+        # name: 'github-pages'
+
+
