@@ -43,7 +43,7 @@ jobs:
     # - name: Install Dependencies
     #   run: npm install sass
     - name: Build Hugo Website
-      run: ./hugo-ci.sh --gc -s content --minify #--baseURL ${{ steps.pages.outputs.base_url }}
+      run: ./hugo-ci.sh --gc -s content --minify -v #--baseURL ${{ steps.pages.outputs.base_url }}
       env:
           HUGO_ENVIRONMENT: production
         # run: |
