@@ -12,8 +12,9 @@ baseURL = "https://photos.ntnguyen.com"
         maxAge = "4320h"                     # 6 months.
 
 [params]
+    timeout = "10m"
     [params.gallerydeluxe]
-        shuffle     = false
+        shuffle     = true
         reverse     = true
         enable_exif = false
 
