@@ -1,5 +1,4 @@
 baseURL = "https://photos.ntnguyen.com"
-timeout = 600
 
 [author]
     name = "Nguyễn Thành Nguyên"
